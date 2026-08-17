@@ -7,7 +7,7 @@ export default function ModalScreen() {
       <View style={styles.container}>
         <Text style={styles.title}>O que ele gosta</Text>
         <Text style={styles.description}>
-          Ele gosta muito muito de Ordem Paranormal e de jogar jogos com seu amigos, sempre que ele esta sozinho ou triste eles sempre estão lá para ajuda-lo
+          Ele gosta muito muito de Ordem Paranormal e de jogar jogos com seu amigos, sempre que ele esta sozinho ou triste eles sempre estão lá para ajuda-lo.
         </Text>
       </View>
     </SafeAreaView>

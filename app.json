@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "projetoBrustolin",
+    "slug": "projetobrustolin",
+    "scheme": "projetobrustolin",
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

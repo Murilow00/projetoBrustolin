@@ -39,6 +39,22 @@ export default function TabsLayout() {
                   headerTitle: 'Sobre',
               }}
           />
+          <Tabs.Screen
+              name="Api"
+              options={{
+                  title: 'Api',
+                  headerTitle: 'Api',
+              }}
+          />
+          <Tabs.Screen
+              name="Post"
+              options={{
+                  title: 'Post',
+                  headerTitle: 'Post',
+              }}
+          />
+          
       </Tabs>
+      
   );
 }

@@ -53,6 +53,14 @@ export default function TabsLayout() {
                   headerTitle: 'Post',
               }}
           />
+
+          <Tabs.Screen
+              name="Delete"
+              options={{
+                  title: 'Delete',
+                  headerTitle: 'Delete',
+              }}
+          />
           
       </Tabs>
       

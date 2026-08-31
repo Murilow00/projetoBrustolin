@@ -11,7 +11,6 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
 
-
 const API_KEY = "cv_lwism4C1nf2n1REyVB4NfRjncK_i9ZUroAEP6CJcHuVRS-mLfvQKEW10TIKv85Cf";
 
 const api = axios.create({
@@ -21,59 +20,56 @@ const api = axios.create({
   },
 });
 
-
 export default function AnimesCriarScreen() {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [status, setStatus] = useState("");
-  const [baseado_em_manga, setBaseadoEmManga] = useState("");
-  const [estudio, setEstudio] = useState("");
   const [genero, setGenero] = useState("");
-
+  const [numero_episodios, setNumero_Episodios] = useState("");
+  const [ano_lancamento, setAno_Lancamento] = useState("");
+  const [estudio, setEstudio] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const [enviando, setEnviando] = useState(false);
 
-    async function criarAnime(){
-        if(!title.trim()){
-            Alert.alert("Preencha ao menos o titulo");
-            return
-        }
-        setEnviando(true);
-        try {
-            const payload = {
-                title: title.trim(),
-                description: description.trim(),
-                status: status.trim(),
-                baseado_em_manga: baseado_em_manga.trim().toLowerCase() === "true"===true,
-                estudio: estudio.trim(),
-                genero: genero.trim(),
-            };
-            if(imageUrl.trim()){
-                payload.imageUrl = imageUrl.trim();
-            }
-            
-            const resposta = await api.post("/api/animes", payload);
-            Alert.alert("Sucesso", `anime "${resposta.data.title}" criado com sucesso!, criado`);
-            setTitle("");
-            setDescription("");
-            setImageUrl("");
-            setStatus("");
-            setBaseadoEmManga("");
-            setEstudio("");
-            setGenero("");
-        } catch (e) {
-            Alert.alert("Detalhes do erro na API", e.response?.data);
-
-            const msgApi = e.response?.data?.details?.fieldErrors?.imageUrl
-            ? "informe uma URL válida para a imagem"
-            : "Falha ao criar anime";
-
-            Alert.alert("Erro", msgApi);
-        } finally {
-            setEnviando(false);
-        }
+  async function criarAnime() {
+    if (
+      !title.trim() ||
+      !genero.trim() ||
+      !numero_episodios.trim() ||
+      !ano_lancamento.trim() ||
+      !estudio.trim()
+    ) {
+      Alert.alert("Erro", "Preencha todos os campos obrigatórios.");
+      return;
     }
+
+    setEnviando(true);
+    try {
+      const payload = {
+        title: title.trim(),
+        genero: genero.trim(),
+        numero_episodios: numero_episodios.trim(),
+        ano_lancamento: ano_lancamento.trim(),
+        estudio: estudio.trim(),
+        imageUrl: imageUrl.trim() ? imageUrl.trim() : null,
+      };
+
+      const resposta = await api.post("/api/animes", payload);
+      Alert.alert("Sucesso", `Anime "${resposta.data.title}" criado com sucesso!`);
+
+      setTitle("");
+      setGenero("");
+      setNumero_Episodios("");
+      setAno_Lancamento("");
+      setEstudio("");
+      setImageUrl("");
+    } catch (e) {
+      const msgApi =
+        e.response?.data?.message || "Falha ao criar anime. Verifique os dados.";
+      Alert.alert("Erro", msgApi);
+    } finally {
+      setEnviando(false);
+    }
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -83,7 +79,7 @@ export default function AnimesCriarScreen() {
           <Text style={styles.subtitulo}>POST /api/animes</Text>
         </View>
 
-        <Text style={styles.rotulo}>Título</Text>
+        <Text style={styles.rotulo}>Título *</Text>
         <TextInput
           style={styles.campo}
           value={title}
@@ -91,18 +87,9 @@ export default function AnimesCriarScreen() {
           placeholder="Ex: Naruto"
         />
 
-        <Text style={styles.rotulo}>Descrição</Text>
-        <TextInput
-          style={styles.campo}
-          value={description}
-          onChangeText={setDescription}
-          placeholder="Ex: Anime do ninja que quer virar presidente"
-        />
-
-
         <Text style={styles.secao}>Campos específicos do tema animes</Text>
 
-        <Text style={styles.rotulo}>Genero</Text>
+        <Text style={styles.rotulo}>Gênero *</Text>
         <TextInput
           style={styles.campo}
           value={genero}
@@ -110,23 +97,33 @@ export default function AnimesCriarScreen() {
           placeholder="Ex: Ação"
         />
 
-        <Text style={styles.rotulo}>Status</Text>
+        <Text style={styles.rotulo}>Número de Episódios *</Text>
         <TextInput
           style={styles.campo}
-          value={status}
-          onChangeText={setStatus}
-          placeholder="Ex: Em andamento"
+          value={numero_episodios}
+          onChangeText={setNumero_Episodios}
+          placeholder="Ex: 220"
+          keyboardType="numeric"
         />
 
-        <Text style={styles.rotulo}>Estúdio</Text>
+        <Text style={styles.rotulo}>Ano de Lançamento *</Text>
+        <TextInput
+          style={styles.campo}
+          value={ano_lancamento}
+          onChangeText={setAno_Lancamento}
+          placeholder="Ex: 2002"
+          keyboardType="numeric"
+        />
+
+        <Text style={styles.rotulo}>Estúdio *</Text>
         <TextInput
           style={styles.campo}
           value={estudio}
           onChangeText={setEstudio}
-          placeholder="Ex: Studio Ghibli"
+          placeholder="Ex: Pierrot"
         />
 
-        <Text style={styles.rotulo}>URL da Imagem</Text>
+        <Text style={styles.rotulo}>URL da Imagem (Opcional)</Text>
         <TextInput
           style={styles.campo}
           value={imageUrl}
@@ -134,16 +131,10 @@ export default function AnimesCriarScreen() {
           placeholder="Ex: https://example.com/imagem.jpg"
         />
 
-        <Text style={styles.rotulo}>Baseado em Manga</Text>
-        <TextInput
-          style={styles.campo}
-          value={baseado_em_manga}
-          onChangeText={setBaseadoEmManga}
-          placeholder="Ex: true"
-        />
-
         <Pressable style={styles.botao} onPress={criarAnime} disabled={enviando}>
-          <Text style={styles.botaoTexto}>{enviando ? "Enviando..." : "Criar anime"}</Text>
+          <Text style={styles.botaoTexto}>
+            {enviando ? "Enviando..." : "Criar anime"}
+          </Text>
         </Pressable>
       </ScrollView>
     </SafeAreaView>
@@ -151,28 +142,28 @@ export default function AnimesCriarScreen() {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: "#6b0210" },
+  safeArea: { flex: 1, backgroundColor: "#000000" },
   conteudo: { padding: 24, paddingBottom: 48 },
   header: { marginBottom: 16 },
-  tituloPagina: { fontSize: 24, fontWeight: "800", color: "#8d0444" },
-  subtitulo: { fontSize: 14, color: "#e00808", marginTop: 2 },
+  tituloPagina: { fontSize: 24, fontWeight: "800", color: "#ff3995" },
+  subtitulo: { fontSize: 14, color: "#ffffff", marginTop: 2 },
   secao: {
     fontSize: 14,
     fontWeight: "700",
-    color: "#102542",
+    color: "#e9e2e2",
     marginTop: 8,
     marginBottom: 8,
   },
-
-  rotulo: { fontSize: 13, fontWeight: "600", color: "#fc5656", marginBottom: 4 },
+  rotulo: { fontSize: 13, fontWeight: "600", color: "#fcf6f6", marginBottom: 4 },
   campo: {
     borderWidth: 1,
-    borderColor: "#060d16",
+    borderColor: "#adccf5",
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     marginBottom: 12,
-    backgroundColor: "red",
+    backgroundColor: "#caffc3",
+    color: "#070606",
   },
   botao: {
     backgroundColor: "#cf2f2f",

@@ -58,7 +58,7 @@ export default function AnimesListarScreen() {
                             <View style={styles.info}>
                                 <Text style={styles.titulo}>{anime.title}</Text>
                                 <Text style={styles.categoria}>
-                                    {anime.category} · {anime.year}
+                                     · {anime.genero}
                                 </Text>
                             </View>
                         </View>
@@ -69,18 +69,18 @@ export default function AnimesListarScreen() {
 }
 
 const styles = StyleSheet.create({
-    safeArea: { flex: 1, backgroundColor: "#700505" }, // ocupa a tela toda, cor de fundo clara
+    safeArea: { flex: 1, backgroundColor: "#000000" }, // ocupa a tela toda, cor de fundo clara
     conteudo: { padding: 24, paddingBottom: 48 }, // respiro nas bordas do conteúdo
     header: { marginBottom: 16 }, // espaço abaixo do cabeçalho
-    tituloPagina: { fontSize: 24, fontWeight: "800", color: "#000000" }, // título grande e escuro
-    subtitulo: { fontSize: 14, color: "#fdfcfc", marginTop: 2 }, // texto menor e mais claro, abaixo do título
+    tituloPagina: { fontSize: 24, fontWeight: "800", color: "#99000d" }, // título grande e escuro
+    subtitulo: { fontSize: 14, color: "#ffffff", marginTop: 2 }, // texto menor e mais claro, abaixo do título
 
     erro: { color: "#eb9191", marginTop: 12 }, // texto de erro em vermelho
     card: {
         flexDirection: "row", // imagem e texto lado a lado
         gap: 12, // espaço entre imagem e texto
         marginTop: 12, // espaço entre um card e outro
-        backgroundColor: "#fdcafd",
+        backgroundColor: "#fcfcfc",
         borderRadius: 10, // cantos arredondados
         overflow: "hidden", // corta a imagem nos cantos arredondados do card
     },

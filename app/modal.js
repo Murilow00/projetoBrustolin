@@ -17,22 +17,25 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#000000",
+    backgroundColor: "#0b1020",
   },
   container: {
     flex: 1,
     padding: 24,
     justifyContent: "center",
     gap: 12,
+    backgroundColor: "#111827",
+    borderRadius: 20,
+    margin: 16,
   },
   title: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#fafafa",
+    color: "#f8fafc",
   },
   description: {
     fontSize: 16,
     lineHeight: 24,
-    color: "#f6f8fa",
+    color: "#cbd5e1",
   },
 });

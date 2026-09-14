@@ -122,33 +122,35 @@ export default function HeroisExcluirScreen() {
 }
 
 const styles = StyleSheet.create({
-  safeArea: { flex: 1, backgroundColor: "#000000" },
+  safeArea: { flex: 1, backgroundColor: "#0b1020" },
   conteudo: { padding: 24, paddingBottom: 48 },
   header: { marginBottom: 16 },
-  tituloPagina: { fontSize: 24, fontWeight: "800", color: "#ff25be" },
-  subtitulo: { fontSize: 14, color: "#e9ecf0", marginTop: 2 },
+  tituloPagina: { fontSize: 24, fontWeight: "800", color: "#8b5cf6" },
+  subtitulo: { fontSize: 14, color: "#94a3b8", marginTop: 2 },
 
-  erro: { color: "#c62828", marginTop: 12 },
+  erro: { color: "#fca5a5", marginTop: 12 },
   card: {
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
     marginTop: 12,
-    backgroundColor: "white",
+    backgroundColor: "#111827",
     borderRadius: 10,
     overflow: "hidden",
     paddingRight: 12,
+    borderWidth: 1,
+    borderColor: "#1e293b",
   },
-  imagem: { width: 64, height: 64 },
+  imagem: { width: 64, height: 64, borderRadius: 8 },
   info: { flex: 1, justifyContent: "center" },
-  titulo: { fontSize: 16, fontWeight: "700" },
-  categoria: { fontSize: 13, color: "#ccd5e2" },
+  titulo: { fontSize: 16, fontWeight: "700", color: "#f8fafc" },
+  categoria: { fontSize: 13, color: "#cbd5e1" },
 
   botaoExcluir: {
-    backgroundColor: "#ec0909",
+    backgroundColor: "#ef4444",
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 8,
   },
-  botaoExcluirTexto: { color: "white", fontWeight: "700", fontSize: 13 },
+  botaoExcluirTexto: { color: "#f8fafc", fontWeight: "700", fontSize: 13 },
 });

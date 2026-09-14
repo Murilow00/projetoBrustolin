@@ -5,7 +5,15 @@ export default function TabsLayout() {
       <Tabs
           screenOptions={{
               headerShadowVisible: false,
-              tabBarActiveTintColor: '#8f0505',
+              headerStyle: { backgroundColor: '#0b1020' },
+              headerTintColor: '#f8fafc',
+              tabBarActiveTintColor: '#8b5cf6',
+              tabBarInactiveTintColor: '#94a3b8',
+              tabBarStyle: {
+                  backgroundColor: '#0f172a',
+                  borderTopColor: '#1e293b',
+                  borderTopWidth: 1,
+              },
               tabBarLabelStyle: {
                   fontSize: 12,
                   fontWeight: '600',
@@ -32,13 +40,7 @@ export default function TabsLayout() {
                   headerTitle: 'Resumo',
               }}
           />
-          <Tabs.Screen
-              name="sobre"
-              options={{
-                  title: 'Sobre',
-                  headerTitle: 'Sobre',
-              }}
-          />
+          
           <Tabs.Screen
               name="Api"
               options={{
@@ -59,6 +61,13 @@ export default function TabsLayout() {
               options={{
                   title: 'Delete',
                   headerTitle: 'Delete',
+              }}
+          />
+          <Tabs.Screen
+              name="sobre"
+              options={{
+                  title: 'Sobre',
+                  headerTitle: 'Sobre',
               }}
           />
           

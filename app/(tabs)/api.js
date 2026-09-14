@@ -69,23 +69,25 @@ export default function AnimesListarScreen() {
 }
 
 const styles = StyleSheet.create({
-    safeArea: { flex: 1, backgroundColor: "#000000" }, // ocupa a tela toda, cor de fundo clara
-    conteudo: { padding: 24, paddingBottom: 48 }, // respiro nas bordas do conteúdo
-    header: { marginBottom: 16 }, // espaço abaixo do cabeçalho
-    tituloPagina: { fontSize: 24, fontWeight: "800", color: "#99000d" }, // título grande e escuro
-    subtitulo: { fontSize: 14, color: "#ffffff", marginTop: 2 }, // texto menor e mais claro, abaixo do título
+    safeArea: { flex: 1, backgroundColor: "#0b1020" },
+    conteudo: { padding: 24, paddingBottom: 48 },
+    header: { marginBottom: 16 },
+    tituloPagina: { fontSize: 24, fontWeight: "800", color: "#8b5cf6" },
+    subtitulo: { fontSize: 14, color: "#94a3b8", marginTop: 2 },
 
-    erro: { color: "#eb9191", marginTop: 12 }, // texto de erro em vermelho
+    erro: { color: "#fca5a5", marginTop: 12 },
     card: {
-        flexDirection: "row", // imagem e texto lado a lado
-        gap: 12, // espaço entre imagem e texto
-        marginTop: 12, // espaço entre um card e outro
-        backgroundColor: "#fcfcfc",
-        borderRadius: 10, // cantos arredondados
-        overflow: "hidden", // corta a imagem nos cantos arredondados do card
+        flexDirection: "row",
+        gap: 12,
+        marginTop: 12,
+        backgroundColor: "#111827",
+        borderRadius: 10,
+        overflow: "hidden",
+        borderWidth: 1,
+        borderColor: "#1e293b",
     },
-    imagem: { width: 64, height: 64 }, // tamanho fixo da foto do herói
-    info: { flex: 1, justifyContent: "center", paddingRight: 12 }, // ocupa o espaço que sobra ao lado da imagem
-    titulo: { fontSize: 16, fontWeight: "700" }, // nome do herói em destaque
-    categoria: { fontSize: 13, color: "#000000" }, // categoria/ano em cinza, menor
+    imagem: { width: 64, height: 64, borderRadius: 8 },
+    info: { flex: 1, justifyContent: "center", paddingRight: 12 },
+    titulo: { fontSize: 16, fontWeight: "700", color: "#f8fafc" },
+    categoria: { fontSize: 13, color: "#cbd5e1" },
 });

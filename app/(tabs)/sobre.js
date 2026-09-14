@@ -44,14 +44,16 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 24,
         gap: 20,
-        backgroundColor: 'black',
+        backgroundColor: '#0b1020',
     },
     hero: {
         alignItems: 'center',
         gap: 10,
         padding: 24,
         borderRadius: 24,
-        backgroundColor: '#680404',
+        backgroundColor: '#111827',
+        borderWidth: 1,
+        borderColor: '#8b5cf6',
     },
     logo: {
         width: 120,
@@ -64,26 +66,26 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         letterSpacing: 1,
         textTransform: 'uppercase',
-        color: '#65ecf1',
+        color: '#a78bfa',
         textAlign: 'center',
     },
     title: {
         fontSize: 32,
         fontWeight: '800',
-        color: '#060707',
+        color: '#f8fafc',
         textAlign: 'center',
     },
     description: {
         fontSize: 16,
         lineHeight: 24,
-        color: '#070808',
+        color: '#cbd5e1',
         textAlign: 'center',
     },
     card: {
         gap: 8,
         padding: 20,
         borderRadius: 20,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#1e293b',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -91,23 +93,23 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontSize: 18,
         fontWeight: '700',
-        color: '#102542',
+        color: '#f8fafc',
     },
     cardItem: {
         fontSize: 15,
-        color: '#334e68',
+        color: '#cbd5e1',
     },
     button: {
         paddingVertical: 16,
         paddingHorizontal: 20,
         borderRadius: 16,
         alignItems: 'center',
-        backgroundColor: '#0d0d0e',
+        backgroundColor: '#8b5cf6',
     },
     buttonText: {
         fontSize: 16,
         fontWeight: '700',
-        color: '#dfd6d6',
+        color: '#f8fafc',
     },
     buttonContainer: {
         display: 'flex',
@@ -119,6 +121,6 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         borderRadius: 30,
-        backgroundColor:"white"
+        backgroundColor:'#f8fafc'
     }
 });

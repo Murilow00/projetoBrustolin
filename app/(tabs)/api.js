@@ -3,7 +3,7 @@ import { View, Text, Image, ActivityIndicator, ScrollView, StyleSheet } from "re
 import axios from "axios" // lib usada pra fazer chamadas HTTP para API
 import { SafeAreaView } from "react-native-safe-area-context" // evita que conteudo fique embaixo do notch/barra do celular
 
-const API_KEY = "cv_lwism4C1nf2n1REyVB4NfRjncK_i9ZUroAEP6CJcHuVRS-mLfvQKEW10TIKv85Cf"
+const API_KEY = 'cv_u2X3L4lp_GpSq6ziXFXbrtyGyP5AxxfBAyXkrQW-U-dCHJlzMhDSrUx4y1ftsGgx';
 
 const api = axios.create({
     baseURL: "https://api-ds.codeverse.dev.br",

@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
 
-const API_KEY = "cv_lwism4C1nf2n1REyVB4NfRjncK_i9ZUroAEP6CJcHuVRS-mLfvQKEW10TIKv85Cf";
+const API_KEY = 'cv_u2X3L4lp_GpSq6ziXFXbrtyGyP5AxxfBAyXkrQW-U-dCHJlzMhDSrUx4y1ftsGgx';
 
 const api = axios.create({
   baseURL: "https://api-ds.codeverse.dev.br",
@@ -42,7 +42,7 @@ export default function AnimesEditarScreen() {
       const resposta = await api.get("/api/animes", {
         params: { limit: 50 },
       });
-      
+
       setAnimes(resposta.data.data || []);
     } catch (e) {
       setErro("Erro ao carregar a lista de animes.");
@@ -80,13 +80,13 @@ export default function AnimesEditarScreen() {
 
     setSalvando(true);
 
-    
+
     const payload = {
       title: title.trim(),
-      imageUrl: imageUrl.trim() ? imageUrl.trim() : null, 
+      imageUrl: imageUrl.trim() ? imageUrl.trim() : null,
       genero: genero.trim(),
-      numero_episodios: Number(numeroEpisodios), 
-      ano_lancamento: Number(anoLancamento),     
+      numero_episodios: Number(numeroEpisodios),
+      ano_lancamento: Number(anoLancamento),
       estudio: estudio.trim(),
     };
 

@@ -14,7 +14,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
 
 
-const API_KEY = "cv_lwism4C1nf2n1REyVB4NfRjncK_i9ZUroAEP6CJcHuVRS-mLfvQKEW10TIKv85Cf";
+const API_KEY = 'cv_u2X3L4lp_GpSq6ziXFXbrtyGyP5AxxfBAyXkrQW-U-dCHJlzMhDSrUx4y1ftsGgx';
 
 
 const api = axios.create({
@@ -45,7 +45,7 @@ export default function HeroisBuscarScreen() {
     setAnime(null);
 
     try {
-    
+
       const resposta = await api.get(`/api/animes/${id}`);
       setAnime(resposta.data);
     } catch (e) {

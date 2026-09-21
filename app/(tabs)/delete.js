@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
 
-const API_KEY = "cv_lwism4C1nf2n1REyVB4NfRjncK_i9ZUroAEP6CJcHuVRS-mLfvQKEW10TIKv85Cf";
+const API_KEY = 'cv_u2X3L4lp_GpSq6ziXFXbrtyGyP5AxxfBAyXkrQW-U-dCHJlzMhDSrUx4y1ftsGgx';
 
 const api = axios.create({
   baseURL: "https://api-ds.codeverse.dev.br",
@@ -27,7 +27,7 @@ export default function HeroisExcluirScreen() {
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(null);
 
-  
+
   const [excluindoId, setExcluindoId] = useState(null);
 
   async function buscarAnimes() {
@@ -52,7 +52,7 @@ export default function HeroisExcluirScreen() {
   async function excluirAnime(id) {
     setExcluindoId(id);
     try {
-      
+
       await api.delete(`/api/animes/${id}`);
 
       setAnimes((atual) => atual.filter((item) => item.id !== id));
@@ -67,7 +67,7 @@ export default function HeroisExcluirScreen() {
   }
 
 
-  
+
   function confirmarExclusao(anime) {
     Alert.alert(
       "Excluir anime",
@@ -83,7 +83,7 @@ export default function HeroisExcluirScreen() {
     );
   }
 
-  
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.conteudo}>
